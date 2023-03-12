@@ -48,16 +48,6 @@
       "maxLength": 155,
       "required": true
     },
-    "mainCategory": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::main-category.main-category"
-    },
-    "secondaryCategory": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::secondary-category.secondary-category"
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
@@ -66,6 +56,15 @@
       },
       "type": "uid",
       "targetField": "title"
+    },
+    "pageUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "unique": true
     }
   }
 }

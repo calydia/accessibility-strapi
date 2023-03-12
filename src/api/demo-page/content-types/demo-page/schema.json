@@ -92,6 +92,15 @@
       },
       "type": "uid",
       "targetField": "title"
+    },
+    "pageUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "unique": true
     }
   }
 }
