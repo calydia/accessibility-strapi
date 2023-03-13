@@ -2,6 +2,9 @@ module.exports = ({ env }) => ({
   ckeditor: {
     enabled: true
   },
+  navigation: {
+    enabled: true
+  },
   graphql: {
     config: {
       endpoint: '/graphql',
