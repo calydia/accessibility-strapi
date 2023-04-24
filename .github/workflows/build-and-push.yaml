@@ -1,0 +1,47 @@
+# Requires the following to be added to GitHub Repository secrets:
+# DOCKERHUB_USERNAME=username
+# DOCKERHUB_TOKEN=token
+
+name: Build and push the image
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          file: Dockerfile
+          pull: true
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/accessibility-strapi:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/accessibility-strapi:${{ github.run_number }}
