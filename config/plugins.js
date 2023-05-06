@@ -23,5 +23,21 @@ module.exports = ({ env }) => ({
       autoGenerate: true,
       allowedFields: ['id', 'uid', 'pageUrl']
     }
+  },
+  meilisearch: {
+    config: {
+      host: env('MEILI_HTTP_PROTOCOL', 'http') + "://" + env('MEILI_HTTP_ADDR', 'localhost:7700'),
+      apiKey: env('MEILI_MASTER_KEY', 'wrong_value'),
+      "page": {
+        entriesQuery: {
+          locale: 'all'
+        }
+      },
+      "demo-page": {
+        entriesQuery: {
+          locale: 'all'
+        }
+      }
+    }
   }
 });
