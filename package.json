@@ -22,8 +22,8 @@
     "pg": "^8.10.0",
     "strapi-plugin-meilisearch": "^0.10.0",
     "strapi-plugin-navigation": "^2.2.4",
-    "strapi-plugin-netlify-deployments": "^2.0.1",
-    "strapi-plugin-sitemap": "^3.0.3"
+    "strapi-plugin-sitemap": "^3.0.3",
+    "strapi-plugin-vercel-deploy": "^1.4.0"
   },
   "devDependencies": {
     "better-sqlite3": "^8.2.0",

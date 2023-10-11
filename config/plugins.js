@@ -43,18 +43,12 @@ module.exports = ({ env }) => ({
       },
     },
   },
-  "netlify-deployments": {
+  "vercel-deploy": {
     enabled: true,
     config: {
-      accessToken: env("NETLIFY_PERSONAL_ACCESS_TOKEN", "wrong_value"),
-      sites: [
-        {
-          name: env("NETLIFY_SITE_NAME", "Netlify Front End"),
-          id: env("NETLIFY_SITE_ID", "wrong_value"),
-          buildHook: env("NETLIFY_BUILD_HOOK_URL", "wrong_value"),
-          branch: env("NETLIFY_GIT_BRANCH", "master"),
-        },
-      ],
+      deployHook: env("VERCEL_HOOK_URL", "wrong_value"),
+      apiToken: env("VERCEL_API_TOKEN", "wrong_value"),
+      appFilter: env("VERCEL_APP_FILTER", "wrong_value"),
     },
   },
 });
