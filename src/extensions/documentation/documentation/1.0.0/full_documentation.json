@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-12-11T18:21:31.662Z"
+    "x-generation-date": "2023-12-23T08:44:38.808Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -615,7 +615,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/DemoPage"
+                  "$ref": "#/components/schemas/DemoPageListResponseDataItemLocalized"
                 }
               }
             }
@@ -1131,7 +1131,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/FrontPage"
+                  "$ref": "#/components/schemas/FrontPageListResponseDataItemLocalized"
                 }
               }
             }
@@ -1647,7 +1647,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/GlossaryTerm"
+                  "$ref": "#/components/schemas/GlossaryTermListResponseDataItemLocalized"
                 }
               }
             }
@@ -2139,7 +2139,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/MenuTitleList"
+                  "$ref": "#/components/schemas/MenuTitleListListResponseDataItemLocalized"
                 }
               }
             }
@@ -2646,7 +2646,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/NotFound"
+                  "$ref": "#/components/schemas/NotFoundListResponseDataItemLocalized"
                 }
               }
             }
@@ -3199,7 +3199,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Page"
+                  "$ref": "#/components/schemas/PageListResponseDataItemLocalized"
                 }
               }
             }
@@ -3697,7 +3697,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/SearchPage"
+                  "$ref": "#/components/schemas/SearchPageListResponseDataItemLocalized"
                 }
               }
             }
