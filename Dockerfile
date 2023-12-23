@@ -1,5 +1,5 @@
 # https://docs.strapi.io/dev-docs/installation/docker
-FROM node:18-alpine as build
+FROM node:18-alpine3.18 as build
 RUN apk update && apk add --no-cache \
   build-base \
   gcc \
@@ -13,7 +13,7 @@ ENV NODE_ENV=production
 WORKDIR /opt/
 COPY ./package.json ./package-lock.json ./
 ENV PATH /opt/node_modules/.bin:$PATH
-RUN npm install --production
+RUN npm install --legacy-peer-deps --omit=dev
 WORKDIR /opt/app
 COPY ./ .
 RUN npm run build
