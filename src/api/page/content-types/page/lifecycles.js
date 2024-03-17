@@ -24,10 +24,11 @@ module.exports = {
       headers.forEach((header, index) => {
         // get current header node number i.e 1,2,...,6
         let currentNode = parseInt(header.nodeName.at(-1))
+
         let text = header.textContent
-          .replace(/\s/g, "-")
-          .replace(/[^A-Za-z-]/g, "")
-          .toLowerCase();
+        .replace(/\s/g, "-")
+        .replace(/[^A-Za-z-]/g, "")
+        .toLowerCase();
 
         if (currentNode > lastNode || (currentNode == lastNode && childNode)) {
           toc = childNode ? toc : toc + "<li><ul>";
@@ -41,24 +42,6 @@ module.exports = {
 
         lastNode = currentNode;
         header.setAttribute("id", text);
-
-        linkLabel = 'Anchor to ';
-        if (locale == 'fi') {
-          linkLabel = 'Ankkurilinkki otsikkoon ';
-        }
-
-        // Create a link to the heading
-        let link = doc.createElement('a');
-        linkHref = '#' + text;
-        link.setAttribute('href', linkHref)
-        link.setAttribute('class', 'heading-anchor');
-        link.innerHTML = linkLabel + header.textContent;
-
-        let prevEl = header.firstElementChild;
-
-        if (prevEl == null) {
-          header.insertAdjacentElement('afterbegin', link);
-        }
       });
 
       // update content with updated headers
