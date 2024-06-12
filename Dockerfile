@@ -1,5 +1,5 @@
 # https://docs.strapi.io/dev-docs/installation/docker
-FROM node:18-alpine3.18 as build
+FROM node:20-alpine as build
 RUN apk update && apk add --no-cache \
   build-base \
   gcc \
@@ -19,7 +19,7 @@ COPY ./ .
 RUN npm run build
 
 
-FROM node:18-alpine
+FROM node:20-alpine
 # Installing libvips-dev for sharp Compatibility
 RUN apk update && apk add --no-cache vips-dev \
   && rm -rf /var/cache/apk/*
