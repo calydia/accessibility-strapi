@@ -1683,7 +1683,6 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
       }>;
     CriterionLevel: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
