@@ -1648,6 +1648,307 @@ export interface ApiSearchPageSearchPage extends Schema.SingleType {
   };
 }
 
+export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
+  collectionName: 'wcag_criteria';
+  info: {
+    singularName: 'wcag-criterion';
+    pluralName: 'wcag-criteria';
+    displayName: 'WCAG Criterion';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    CriterionNumber: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    CriterionLevel: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 3;
+      }>;
+    OfficialDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    WhatToDo: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    WhyItIsImportant: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    HowToTestForIt: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    WCAGPrinciple: Attribute.Relation<
+      'api::wcag-criterion.wcag-criterion',
+      'oneToOne',
+      'api::wcag-principle.wcag-principle'
+    >;
+    WCAGGuideline: Attribute.Relation<
+      'api::wcag-criterion.wcag-criterion',
+      'oneToOne',
+      'api::wcag-guideline.wcag-guideline'
+    >;
+    Slug: Attribute.UID &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-criterion.wcag-criterion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-criterion.wcag-criterion',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-criterion.wcag-criterion',
+      'oneToMany',
+      'api::wcag-criterion.wcag-criterion'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
+  collectionName: 'wcag_guidelines';
+  info: {
+    singularName: 'wcag-guideline';
+    pluralName: 'wcag-guidelines';
+    displayName: 'WCAG Guideline';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Slug: Attribute.UID &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    GuidelineDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    WCAGPrinciple: Attribute.Relation<
+      'api::wcag-guideline.wcag-guideline',
+      'oneToOne',
+      'api::wcag-principle.wcag-principle'
+    >;
+    GuidelineNumber: Attribute.String &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-guideline.wcag-guideline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-guideline.wcag-guideline',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-guideline.wcag-guideline',
+      'oneToMany',
+      'api::wcag-guideline.wcag-guideline'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
+  collectionName: 'wcag_principles';
+  info: {
+    singularName: 'wcag-principle';
+    pluralName: 'wcag-principles';
+    displayName: 'WCAG Principle';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    Name: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PrincipleDescription: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Slug: Attribute.UID &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PrincipleNumber: Attribute.String &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-principle.wcag-principle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-principle.wcag-principle',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-principle.wcag-principle',
+      'oneToMany',
+      'api::wcag-principle.wcag-principle'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1679,6 +1980,9 @@ declare module '@strapi/types' {
       'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
       'api::search-page.search-page': ApiSearchPageSearchPage;
+      'api::wcag-criterion.wcag-criterion': ApiWcagCriterionWcagCriterion;
+      'api::wcag-guideline.wcag-guideline': ApiWcagGuidelineWcagGuideline;
+      'api::wcag-principle.wcag-principle': ApiWcagPrincipleWcagPrinciple;
     }
   }
 }
