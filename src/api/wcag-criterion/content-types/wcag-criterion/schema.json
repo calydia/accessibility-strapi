@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -26,7 +26,7 @@
       "unique": true,
       "required": true
     },
-    "CriterionNumber": {
+    "criterionNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -36,7 +36,7 @@
       "required": true,
       "unique": true
     },
-    "CriterionLevel": {
+    "criterionLevel": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -47,7 +47,7 @@
       "unique": false,
       "maxLength": 3
     },
-    "OfficialDescription": {
+    "officialDescription": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -60,7 +60,7 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "WhatToDo": {
+    "whatToDo": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -73,7 +73,7 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "WhyItIsImportant": {
+    "whyItIsImportant": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -86,7 +86,7 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "HowToTestForIt": {
+    "howToTestForIt": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -99,17 +99,17 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "WCAGPrinciple": {
+    "wcagPrinciple": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::wcag-principle.wcag-principle"
     },
-    "WCAGGuideline": {
+    "wcagGuideline": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::wcag-guideline.wcag-guideline"
     },
-    "Slug": {
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true

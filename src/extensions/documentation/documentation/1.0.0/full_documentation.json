@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-15T15:26:24.732Z"
+    "x-generation-date": "2024-06-18T18:27:49.900Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3749,35 +3749,35 @@
       },
       "WcagCriterionLocalizationRequest": {
         "required": [
-          "Name",
-          "CriterionNumber",
-          "CriterionLevel",
+          "name",
+          "criterionNumber",
+          "criterionLevel",
           "locale"
         ],
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "CriterionNumber": {
+          "criterionNumber": {
             "type": "string"
           },
-          "CriterionLevel": {
+          "criterionLevel": {
             "type": "string"
           },
-          "OfficialDescription": {
+          "officialDescription": {
             "type": "string"
           },
-          "WhatToDo": {
+          "whatToDo": {
             "type": "string"
           },
-          "WhyItIsImportant": {
+          "whyItIsImportant": {
             "type": "string"
           },
-          "HowToTestForIt": {
+          "howToTestForIt": {
             "type": "string"
           },
-          "WCAGPrinciple": {
+          "wcagPrinciple": {
             "oneOf": [
               {
                 "type": "integer"
@@ -3788,7 +3788,7 @@
             ],
             "example": "string or id"
           },
-          "WCAGGuideline": {
+          "wcagGuideline": {
             "oneOf": [
               {
                 "type": "integer"
@@ -3799,7 +3799,7 @@
             ],
             "example": "string or id"
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
           "sitemap_exclude": {
@@ -3818,34 +3818,34 @@
         "properties": {
           "data": {
             "required": [
-              "Name",
-              "CriterionNumber",
-              "CriterionLevel"
+              "name",
+              "criterionNumber",
+              "criterionLevel"
             ],
             "type": "object",
             "properties": {
-              "Name": {
+              "name": {
                 "type": "string"
               },
-              "CriterionNumber": {
+              "criterionNumber": {
                 "type": "string"
               },
-              "CriterionLevel": {
+              "criterionLevel": {
                 "type": "string"
               },
-              "OfficialDescription": {
+              "officialDescription": {
                 "type": "string"
               },
-              "WhatToDo": {
+              "whatToDo": {
                 "type": "string"
               },
-              "WhyItIsImportant": {
+              "whyItIsImportant": {
                 "type": "string"
               },
-              "HowToTestForIt": {
+              "howToTestForIt": {
                 "type": "string"
               },
-              "WCAGPrinciple": {
+              "wcagPrinciple": {
                 "oneOf": [
                   {
                     "type": "integer"
@@ -3856,7 +3856,7 @@
                 ],
                 "example": "string or id"
               },
-              "WCAGGuideline": {
+              "wcagGuideline": {
                 "oneOf": [
                   {
                     "type": "integer"
@@ -3867,7 +3867,7 @@
                 ],
                 "example": "string or id"
               },
-              "Slug": {
+              "slug": {
                 "type": "string"
               },
               "sitemap_exclude": {
@@ -3997,33 +3997,33 @@
       "WcagCriterion": {
         "type": "object",
         "required": [
-          "Name",
-          "CriterionNumber",
-          "CriterionLevel"
+          "name",
+          "criterionNumber",
+          "criterionLevel"
         ],
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "CriterionNumber": {
+          "criterionNumber": {
             "type": "string"
           },
-          "CriterionLevel": {
+          "criterionLevel": {
             "type": "string"
           },
-          "OfficialDescription": {
+          "officialDescription": {
             "type": "string"
           },
-          "WhatToDo": {
+          "whatToDo": {
             "type": "string"
           },
-          "WhyItIsImportant": {
+          "whyItIsImportant": {
             "type": "string"
           },
-          "HowToTestForIt": {
+          "howToTestForIt": {
             "type": "string"
           },
-          "WCAGPrinciple": {
+          "wcagPrinciple": {
             "type": "object",
             "properties": {
               "data": {
@@ -4035,16 +4035,16 @@
                   "attributes": {
                     "type": "object",
                     "properties": {
-                      "Name": {
+                      "name": {
                         "type": "string"
                       },
-                      "PrincipleDescription": {
+                      "principleDescription": {
                         "type": "string"
                       },
-                      "Slug": {
+                      "slug": {
                         "type": "string"
                       },
-                      "PrincipleNumber": {
+                      "principleNumber": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -4366,7 +4366,7 @@
               }
             }
           },
-          "WCAGGuideline": {
+          "wcagGuideline": {
             "type": "object",
             "properties": {
               "data": {
@@ -4378,16 +4378,16 @@
                   "attributes": {
                     "type": "object",
                     "properties": {
-                      "Name": {
+                      "name": {
                         "type": "string"
                       },
-                      "Slug": {
+                      "slug": {
                         "type": "string"
                       },
-                      "GuidelineDescription": {
+                      "guidelineDescription": {
                         "type": "string"
                       },
-                      "WCAGPrinciple": {
+                      "wcagPrinciple": {
                         "type": "object",
                         "properties": {
                           "data": {
@@ -4404,7 +4404,7 @@
                           }
                         }
                       },
-                      "GuidelineNumber": {
+                      "guidelineNumber": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -4474,7 +4474,7 @@
               }
             }
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
           "createdAt": {
@@ -4566,21 +4566,21 @@
       },
       "WcagGuidelineLocalizationRequest": {
         "required": [
-          "Name",
+          "name",
           "locale"
         ],
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
-          "GuidelineDescription": {
+          "guidelineDescription": {
             "type": "string"
           },
-          "WCAGPrinciple": {
+          "wcagPrinciple": {
             "oneOf": [
               {
                 "type": "integer"
@@ -4591,7 +4591,7 @@
             ],
             "example": "string or id"
           },
-          "GuidelineNumber": {
+          "guidelineNumber": {
             "type": "string"
           },
           "sitemap_exclude": {
@@ -4610,20 +4610,20 @@
         "properties": {
           "data": {
             "required": [
-              "Name"
+              "name"
             ],
             "type": "object",
             "properties": {
-              "Name": {
+              "name": {
                 "type": "string"
               },
-              "Slug": {
+              "slug": {
                 "type": "string"
               },
-              "GuidelineDescription": {
+              "guidelineDescription": {
                 "type": "string"
               },
-              "WCAGPrinciple": {
+              "wcagPrinciple": {
                 "oneOf": [
                   {
                     "type": "integer"
@@ -4634,7 +4634,7 @@
                 ],
                 "example": "string or id"
               },
-              "GuidelineNumber": {
+              "guidelineNumber": {
                 "type": "string"
               },
               "sitemap_exclude": {
@@ -4764,19 +4764,19 @@
       "WcagGuideline": {
         "type": "object",
         "required": [
-          "Name"
+          "name"
         ],
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
-          "GuidelineDescription": {
+          "guidelineDescription": {
             "type": "string"
           },
-          "WCAGPrinciple": {
+          "wcagPrinciple": {
             "type": "object",
             "properties": {
               "data": {
@@ -4788,16 +4788,16 @@
                   "attributes": {
                     "type": "object",
                     "properties": {
-                      "Name": {
+                      "name": {
                         "type": "string"
                       },
-                      "PrincipleDescription": {
+                      "principleDescription": {
                         "type": "string"
                       },
-                      "Slug": {
+                      "slug": {
                         "type": "string"
                       },
-                      "PrincipleNumber": {
+                      "principleNumber": {
                         "type": "string"
                       },
                       "createdAt": {
@@ -5119,7 +5119,7 @@
               }
             }
           },
-          "GuidelineNumber": {
+          "guidelineNumber": {
             "type": "string"
           },
           "createdAt": {
@@ -5211,22 +5211,22 @@
       },
       "WcagPrincipleLocalizationRequest": {
         "required": [
-          "Name",
-          "Slug",
+          "name",
+          "slug",
           "locale"
         ],
         "type": "object",
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "PrincipleDescription": {
+          "principleDescription": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
-          "PrincipleNumber": {
+          "principleNumber": {
             "type": "string"
           },
           "sitemap_exclude": {
@@ -5245,21 +5245,21 @@
         "properties": {
           "data": {
             "required": [
-              "Name",
-              "Slug"
+              "name",
+              "slug"
             ],
             "type": "object",
             "properties": {
-              "Name": {
+              "name": {
                 "type": "string"
               },
-              "PrincipleDescription": {
+              "principleDescription": {
                 "type": "string"
               },
-              "Slug": {
+              "slug": {
                 "type": "string"
               },
-              "PrincipleNumber": {
+              "principleNumber": {
                 "type": "string"
               },
               "sitemap_exclude": {
@@ -5389,20 +5389,20 @@
       "WcagPrinciple": {
         "type": "object",
         "required": [
-          "Name",
-          "Slug"
+          "name",
+          "slug"
         ],
         "properties": {
-          "Name": {
+          "name": {
             "type": "string"
           },
-          "PrincipleDescription": {
+          "principleDescription": {
             "type": "string"
           },
-          "Slug": {
+          "slug": {
             "type": "string"
           },
-          "PrincipleNumber": {
+          "principleNumber": {
             "type": "string"
           },
           "createdAt": {

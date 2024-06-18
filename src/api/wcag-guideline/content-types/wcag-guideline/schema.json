@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -26,7 +26,7 @@
       "required": true,
       "unique": true
     },
-    "Slug": {
+    "slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -34,7 +34,7 @@
       },
       "type": "uid"
     },
-    "GuidelineDescription": {
+    "guidelineDescription": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -47,12 +47,12 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "WCAGPrinciple": {
+    "wcagPrinciple": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::wcag-principle.wcag-principle"
     },
-    "GuidelineNumber": {
+    "guidelineNumber": {
       "pluginOptions": {
         "i18n": {
           "localized": true

@@ -1665,7 +1665,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
     };
   };
   attributes: {
-    Name: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
@@ -1673,7 +1673,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    CriterionNumber: Attribute.String &
+    criterionNumber: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
@@ -1681,7 +1681,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    CriterionLevel: Attribute.String &
+    criterionLevel: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1691,7 +1691,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 3;
       }>;
-    OfficialDescription: Attribute.RichText &
+    officialDescription: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -1704,7 +1704,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    WhatToDo: Attribute.RichText &
+    whatToDo: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -1717,7 +1717,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    WhyItIsImportant: Attribute.RichText &
+    whyItIsImportant: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -1730,7 +1730,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    HowToTestForIt: Attribute.RichText &
+    howToTestForIt: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -1743,17 +1743,17 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    WCAGPrinciple: Attribute.Relation<
+    wcagPrinciple: Attribute.Relation<
       'api::wcag-criterion.wcag-criterion',
       'oneToOne',
       'api::wcag-principle.wcag-principle'
     >;
-    WCAGGuideline: Attribute.Relation<
+    wcagGuideline: Attribute.Relation<
       'api::wcag-criterion.wcag-criterion',
       'oneToOne',
       'api::wcag-guideline.wcag-guideline'
     >;
-    Slug: Attribute.UID &
+    slug: Attribute.UID &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1803,7 +1803,7 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
     };
   };
   attributes: {
-    Name: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
@@ -1811,13 +1811,13 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Slug: Attribute.UID &
+    slug: Attribute.UID &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    GuidelineDescription: Attribute.RichText &
+    guidelineDescription: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -1830,12 +1830,12 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    WCAGPrinciple: Attribute.Relation<
+    wcagPrinciple: Attribute.Relation<
       'api::wcag-guideline.wcag-guideline',
       'oneToOne',
       'api::wcag-principle.wcag-principle'
     >;
-    GuidelineNumber: Attribute.String &
+    guidelineNumber: Attribute.String &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1886,7 +1886,7 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
     };
   };
   attributes: {
-    Name: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
@@ -1894,7 +1894,7 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    PrincipleDescription: Attribute.RichText &
+    principleDescription: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
         {
@@ -1907,14 +1907,14 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    Slug: Attribute.UID &
+    slug: Attribute.UID &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    PrincipleNumber: Attribute.String &
+    principleNumber: Attribute.String &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
