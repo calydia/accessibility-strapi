@@ -1798,6 +1798,55 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
   };
 }
 
+export interface ApiWcagFrontPageWcagFrontPage extends Schema.SingleType {
+  collectionName: 'wcag_front_pages';
+  info: {
+    singularName: 'wcag-front-page';
+    pluralName: 'wcag-front-pages';
+    displayName: 'WCAG Front page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-front-page.wcag-front-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-front-page.wcag-front-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-front-page.wcag-front-page',
+      'oneToMany',
+      'api::wcag-front-page.wcag-front-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
   collectionName: 'wcag_guidelines';
   info: {
@@ -1992,6 +2041,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::search-page.search-page': ApiSearchPageSearchPage;
       'api::wcag-criterion.wcag-criterion': ApiWcagCriterionWcagCriterion;
+      'api::wcag-front-page.wcag-front-page': ApiWcagFrontPageWcagFrontPage;
       'api::wcag-guideline.wcag-guideline': ApiWcagGuidelineWcagGuideline;
       'api::wcag-principle.wcag-principle': ApiWcagPrincipleWcagPrinciple;
     }
