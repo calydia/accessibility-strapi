@@ -116,6 +116,22 @@
         }
       },
       "type": "uid"
+    },
+    "commonPitfalls": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    },
+    "moreAboutThisCriterion": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
     }
   }
 }
