@@ -1759,13 +1759,27 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    commonPitfalls: Attribute.Blocks &
+    commonPitfalls: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    moreAboutThisCriterion: Attribute.Blocks &
+    moreAboutThisCriterion: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
