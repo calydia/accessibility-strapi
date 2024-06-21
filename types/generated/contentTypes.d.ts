@@ -1791,6 +1791,12 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    wcagVersion: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
