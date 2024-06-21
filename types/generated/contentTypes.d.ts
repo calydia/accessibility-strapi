@@ -1785,6 +1785,12 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1818,6 +1824,7 @@ export interface ApiWcagFrontPageWcagFrontPage extends Schema.SingleType {
     singularName: 'wcag-front-page';
     pluralName: 'wcag-front-pages';
     displayName: 'WCAG Front page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1833,6 +1840,21 @@ export interface ApiWcagFrontPageWcagFrontPage extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+      }>;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1917,6 +1939,15 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1996,6 +2027,15 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2018,6 +2058,74 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
       'api::wcag-principle.wcag-principle',
       'oneToMany',
       'api::wcag-principle.wcag-principle'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiWcagSitemapWcagSitemap extends Schema.SingleType {
+  collectionName: 'wcag_sitemaps';
+  info: {
+    singularName: 'wcag-sitemap';
+    pluralName: 'wcag-sitemaps';
+    displayName: 'WCAG Sitemap';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-sitemap.wcag-sitemap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-sitemap.wcag-sitemap',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-sitemap.wcag-sitemap',
+      'oneToMany',
+      'api::wcag-sitemap.wcag-sitemap'
     >;
     locale: Attribute.String;
   };
@@ -2058,6 +2166,7 @@ declare module '@strapi/types' {
       'api::wcag-front-page.wcag-front-page': ApiWcagFrontPageWcagFrontPage;
       'api::wcag-guideline.wcag-guideline': ApiWcagGuidelineWcagGuideline;
       'api::wcag-principle.wcag-principle': ApiWcagPrincipleWcagPrinciple;
+      'api::wcag-sitemap.wcag-sitemap': ApiWcagSitemapWcagSitemap;
     }
   }
 }
