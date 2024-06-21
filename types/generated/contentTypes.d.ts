@@ -1835,12 +1835,6 @@ export interface ApiWcagFrontPageWcagFrontPage extends Schema.SingleType {
     };
   };
   attributes: {
-    content: Attribute.Blocks &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1855,6 +1849,19 @@ export interface ApiWcagFrontPageWcagFrontPage extends Schema.SingleType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+      }>;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
