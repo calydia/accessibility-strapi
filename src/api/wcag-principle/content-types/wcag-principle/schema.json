@@ -55,7 +55,7 @@
         }
       },
       "type": "string",
-      "unique": true
+      "unique": false
     },
     "metaDescription": {
       "pluginOptions": {

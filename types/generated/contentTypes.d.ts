@@ -1675,7 +1675,6 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
       }>;
     criterionNumber: Attribute.String &
       Attribute.Required &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1946,7 +1945,6 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
       'api::wcag-principle.wcag-principle'
     >;
     guidelineNumber: Attribute.String &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -2034,7 +2032,6 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
         };
       }>;
     principleNumber: Attribute.String &
-      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
