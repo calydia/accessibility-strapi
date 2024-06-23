@@ -1796,6 +1796,12 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    pageUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1958,6 +1964,12 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+      }>;
+    pageUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

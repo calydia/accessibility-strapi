@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-22T09:05:35.167Z"
+    "x-generation-date": "2024-06-23T10:41:06.273Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3814,6 +3814,9 @@
           "wcagVersion": {
             "type": "string"
           },
+          "pageUrl": {
+            "type": "string"
+          },
           "sitemap_exclude": {
             "type": "boolean"
           },
@@ -3892,6 +3895,9 @@
                 "type": "string"
               },
               "wcagVersion": {
+                "type": "string"
+              },
+              "pageUrl": {
                 "type": "string"
               },
               "sitemap_exclude": {
@@ -4437,6 +4443,9 @@
                       "metaDescription": {
                         "type": "string"
                       },
+                      "pageUrl": {
+                        "type": "string"
+                      },
                       "createdAt": {
                         "type": "string",
                         "format": "date-time"
@@ -4517,6 +4526,9 @@
             "type": "string"
           },
           "wcagVersion": {
+            "type": "string"
+          },
+          "pageUrl": {
             "type": "string"
           },
           "createdAt": {
@@ -5155,6 +5167,9 @@
           "metaDescription": {
             "type": "string"
           },
+          "pageUrl": {
+            "type": "string"
+          },
           "sitemap_exclude": {
             "type": "boolean"
           },
@@ -5199,6 +5214,9 @@
                 "type": "string"
               },
               "metaDescription": {
+                "type": "string"
+              },
+              "pageUrl": {
                 "type": "string"
               },
               "sitemap_exclude": {
@@ -5690,6 +5708,9 @@
             "type": "string"
           },
           "metaDescription": {
+            "type": "string"
+          },
+          "pageUrl": {
             "type": "string"
           },
           "createdAt": {

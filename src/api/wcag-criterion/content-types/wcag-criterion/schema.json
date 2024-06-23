@@ -158,6 +158,14 @@
         }
       },
       "type": "string"
+    },
+    "pageUrl": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
