@@ -166,6 +166,14 @@
         }
       },
       "type": "string"
+    },
+    "criterionSort": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "integer"
     }
   }
 }
