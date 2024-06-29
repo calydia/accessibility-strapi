@@ -1,5 +1,5 @@
 # https://docs.strapi.io/dev-docs/installation/docker
-FROM node:20-alpine as build
+FROM node:20-alpine AS build
 RUN apk add --no-cache \
   build-base \
   gcc \
@@ -11,7 +11,7 @@ RUN apk add --no-cache \
 ENV NODE_ENV=production
 WORKDIR /opt
 COPY ./package.json ./package-lock.json ./
-ENV PATH /opt/node_modules/.bin:$PATH
+ENV PATH=/opt/node_modules/.bin:$PATH
 RUN npm install --legacy-peer-deps --omit=dev
 WORKDIR /opt/app
 COPY ./config ./config
@@ -24,13 +24,13 @@ RUN npm run build
 
 
 FROM node:20-alpine
-# Installing libvips-dev for sharp Compatibility
+# Installing libvips-dev for sharp compatibility
 RUN apk add --no-cache vips-dev
 ENV NODE_ENV=production
 WORKDIR /opt/app
 COPY --from=build --chown=node:node /opt/node_modules ./node_modules
 COPY --from=build --chown=node:node /opt/app ./
 USER node
-ENV PATH /opt/app/node_modules/.bin:$PATH
+ENV PATH=/opt/app/node_modules/.bin:$PATH
 EXPOSE 1337
 CMD ["npm", "run", "start"]
