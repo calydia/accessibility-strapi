@@ -1,0 +1,10 @@
+.git/
+.github/
+.tmp/
+node_modules/
+.env*
+Dockerfile
+.editorconfig
+.*rc
+.*ignore
+*.md
