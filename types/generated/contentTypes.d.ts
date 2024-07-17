@@ -1648,6 +1648,76 @@ export interface ApiSearchPageSearchPage extends Schema.SingleType {
   };
 }
 
+export interface ApiWcagAccessibilityPolicyWcagAccessibilityPolicy
+  extends Schema.SingleType {
+  collectionName: 'wcag_accessibility_policies';
+  info: {
+    singularName: 'wcag-accessibility-policy';
+    pluralName: 'wcag-accessibility-policies';
+    displayName: 'WCAG Accessibility policy';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-accessibility-policy.wcag-accessibility-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-accessibility-policy.wcag-accessibility-policy',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-accessibility-policy.wcag-accessibility-policy',
+      'oneToMany',
+      'api::wcag-accessibility-policy.wcag-accessibility-policy'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
   collectionName: 'wcag_criteria';
   info: {
@@ -2190,6 +2260,7 @@ declare module '@strapi/types' {
       'api::not-found.not-found': ApiNotFoundNotFound;
       'api::page.page': ApiPagePage;
       'api::search-page.search-page': ApiSearchPageSearchPage;
+      'api::wcag-accessibility-policy.wcag-accessibility-policy': ApiWcagAccessibilityPolicyWcagAccessibilityPolicy;
       'api::wcag-criterion.wcag-criterion': ApiWcagCriterionWcagCriterion;
       'api::wcag-front-page.wcag-front-page': ApiWcagFrontPageWcagFrontPage;
       'api::wcag-guideline.wcag-guideline': ApiWcagGuidelineWcagGuideline;
