@@ -1878,6 +1878,12 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    cardContent: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
