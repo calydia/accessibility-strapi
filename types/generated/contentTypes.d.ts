@@ -2269,6 +2269,62 @@ export interface ApiWcagSitemapWcagSitemap extends Schema.SingleType {
   };
 }
 
+export interface ApiWcagTerminologyWcagTerminology extends Schema.SingleType {
+  collectionName: 'wcag_terminologies';
+  info: {
+    singularName: 'wcag-terminology';
+    pluralName: 'wcag-terminologies';
+    displayName: 'WCAG Terminology';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::wcag-terminology.wcag-terminology',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::wcag-terminology.wcag-terminology',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::wcag-terminology.wcag-terminology',
+      'oneToMany',
+      'api::wcag-terminology.wcag-terminology'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -2306,6 +2362,7 @@ declare module '@strapi/types' {
       'api::wcag-guideline.wcag-guideline': ApiWcagGuidelineWcagGuideline;
       'api::wcag-principle.wcag-principle': ApiWcagPrincipleWcagPrinciple;
       'api::wcag-sitemap.wcag-sitemap': ApiWcagSitemapWcagSitemap;
+      'api::wcag-terminology.wcag-terminology': ApiWcagTerminologyWcagTerminology;
     }
   }
 }
