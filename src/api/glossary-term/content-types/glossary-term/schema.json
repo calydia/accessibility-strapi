@@ -4,7 +4,8 @@
   "info": {
     "singularName": "glossary-term",
     "pluralName": "glossary-terms",
-    "displayName": "Glossary term"
+    "displayName": "Glossary term",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -44,6 +45,15 @@
       },
       "type": "uid",
       "targetField": "termName"
+    },
+    "useOnWCAGSite": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

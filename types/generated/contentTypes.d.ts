@@ -1307,6 +1307,7 @@ export interface ApiGlossaryTermGlossaryTerm extends Schema.CollectionType {
     singularName: 'glossary-term';
     pluralName: 'glossary-terms';
     displayName: 'Glossary term';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1342,6 +1343,13 @@ export interface ApiGlossaryTermGlossaryTerm extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    useOnWCAGSite: Attribute.Boolean &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
