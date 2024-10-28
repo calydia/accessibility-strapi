@@ -1229,6 +1229,73 @@ export interface ApiDemoPageDemoPage extends Schema.CollectionType {
   };
 }
 
+export interface ApiExoveBlogExoveBlog extends Schema.CollectionType {
+  collectionName: 'exove_blogs';
+  info: {
+    singularName: 'exove-blog';
+    pluralName: 'exove-blogs';
+    displayName: 'ExoveBlog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    postDate: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    postUrl: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    blogImage: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::exove-blog.exove-blog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::exove-blog.exove-blog',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    localizations: Attribute.Relation<
+      'api::exove-blog.exove-blog',
+      'oneToMany',
+      'api::exove-blog.exove-blog'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFrontPageFrontPage extends Schema.SingleType {
   collectionName: 'front_pages';
   info: {
@@ -2350,6 +2417,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::demo-page.demo-page': ApiDemoPageDemoPage;
+      'api::exove-blog.exove-blog': ApiExoveBlogExoveBlog;
       'api::front-page.front-page': ApiFrontPageFrontPage;
       'api::glossary-term.glossary-term': ApiGlossaryTermGlossaryTerm;
       'api::menu-title-list.menu-title-list': ApiMenuTitleListMenuTitleList;
