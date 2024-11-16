@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "notices",
+  "info": {
+    "singularName": "notice",
+    "pluralName": "notices",
+    "displayName": "Notice"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "noticeContent": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    }
+  }
+}

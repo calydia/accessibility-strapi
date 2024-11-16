@@ -810,6 +810,55 @@ export interface ApiNotFoundNotFound extends Schema.SingleType {
   };
 }
 
+export interface ApiNoticeNotice extends Schema.SingleType {
+  collectionName: 'notices';
+  info: {
+    displayName: 'Notice';
+    pluralName: 'notices';
+    singularName: 'notice';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::notice.notice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    locale: Attribute.String;
+    localizations: Attribute.Relation<
+      'api::notice.notice',
+      'oneToMany',
+      'api::notice.notice'
+    >;
+    noticeContent: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Attribute.DateTime;
+    sitemap_exclude: Attribute.Boolean &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
+    updatedAt: Attribute.DateTime;
+    updatedBy: Attribute.Relation<
+      'api::notice.notice',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -2408,6 +2457,7 @@ declare module '@strapi/types' {
       'api::glossary-term.glossary-term': ApiGlossaryTermGlossaryTerm;
       'api::menu-title-list.menu-title-list': ApiMenuTitleListMenuTitleList;
       'api::not-found.not-found': ApiNotFoundNotFound;
+      'api::notice.notice': ApiNoticeNotice;
       'api::page.page': ApiPagePage;
       'api::search-page.search-page': ApiSearchPageSearchPage;
       'api::wcag-accessibility-policy.wcag-accessibility-policy': ApiWcagAccessibilityPolicyWcagAccessibilityPolicy;
