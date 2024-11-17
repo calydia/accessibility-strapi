@@ -1225,6 +1225,7 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+        minLength: 70;
       }>;
     moreAboutThisCriterion: Attribute.RichText &
       Attribute.CustomField<
