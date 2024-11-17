@@ -4,7 +4,8 @@
   "info": {
     "singularName": "wcag-terminology",
     "pluralName": "wcag-terminologies",
-    "displayName": "WCAG Terminology"
+    "displayName": "WCAG Terminology",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -27,6 +28,16 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "metaDescription": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "maxLength": 155,
+      "minLength": 70
     }
   }
 }

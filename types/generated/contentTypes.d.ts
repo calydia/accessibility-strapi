@@ -1663,6 +1663,7 @@ export interface ApiWcagSitemapWcagSitemap extends Schema.SingleType {
 export interface ApiWcagTerminologyWcagTerminology extends Schema.SingleType {
   collectionName: 'wcag_terminologies';
   info: {
+    description: '';
     displayName: 'WCAG Terminology';
     pluralName: 'wcag-terminologies';
     singularName: 'wcag-terminology';
@@ -1702,6 +1703,16 @@ export interface ApiWcagTerminologyWcagTerminology extends Schema.SingleType {
       'oneToMany',
       'api::wcag-terminology.wcag-terminology'
     >;
+    metaDescription: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
+        minLength: 70;
+      }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
       Attribute.Private &
