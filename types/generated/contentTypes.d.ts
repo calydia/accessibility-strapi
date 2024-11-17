@@ -436,6 +436,10 @@ export interface ApiDemoPageDemoPage extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
+        minLength: 70;
       }>;
     pageUrl: Attribute.String &
       Attribute.Unique &
@@ -601,6 +605,7 @@ export interface ApiFrontPageFrontPage extends Schema.SingleType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+        minLength: 70;
       }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
@@ -921,6 +926,7 @@ export interface ApiPagePage extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+        minLength: 70;
       }>;
     pageUrl: Attribute.String &
       Attribute.Unique &
@@ -1075,6 +1081,10 @@ export interface ApiWcagAccessibilityPolicyWcagAccessibilityPolicy
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
+        minLength: 70;
       }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
@@ -1212,6 +1222,9 @@ export interface ApiWcagCriterionWcagCriterion extends Schema.CollectionType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
       }>;
     moreAboutThisCriterion: Attribute.RichText &
       Attribute.CustomField<
@@ -1366,6 +1379,7 @@ export interface ApiWcagFrontPageWcagFrontPage extends Schema.SingleType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+        minLength: 70;
       }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &
@@ -1444,6 +1458,7 @@ export interface ApiWcagGuidelineWcagGuideline extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+        minLength: 70;
       }>;
     name: Attribute.String &
       Attribute.Required &
@@ -1522,6 +1537,7 @@ export interface ApiWcagPrincipleWcagPrinciple extends Schema.CollectionType {
       }> &
       Attribute.SetMinMaxLength<{
         maxLength: 155;
+        minLength: 70;
       }>;
     name: Attribute.String &
       Attribute.Required &
@@ -1612,6 +1628,10 @@ export interface ApiWcagSitemapWcagSitemap extends Schema.SingleType {
         i18n: {
           localized: true;
         };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 155;
+        minLength: 70;
       }>;
     publishedAt: Attribute.DateTime;
     sitemap_exclude: Attribute.Boolean &

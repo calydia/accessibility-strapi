@@ -46,7 +46,8 @@
       },
       "type": "text",
       "maxLength": 155,
-      "required": true
+      "required": true,
+      "minLength": 70
     },
     "slug": {
       "pluginOptions": {

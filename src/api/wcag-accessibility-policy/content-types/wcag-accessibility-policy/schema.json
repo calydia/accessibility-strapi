@@ -30,7 +30,9 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "maxLength": 155,
+      "minLength": 70
     },
     "content": {
       "pluginOptions": {

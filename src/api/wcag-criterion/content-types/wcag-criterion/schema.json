@@ -149,7 +149,8 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "text",
+      "maxLength": 155
     },
     "wcagVersion": {
       "pluginOptions": {

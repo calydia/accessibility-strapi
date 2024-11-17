@@ -44,7 +44,8 @@
         }
       },
       "type": "text",
-      "maxLength": 155
+      "maxLength": 155,
+      "minLength": 70
     }
   }
 }
