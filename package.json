@@ -5,9 +5,6 @@
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
-    "meilisearch:download": "curl -L https://install.meilisearch.com | sh && mkdir .tmp 2> /dev/null || mv meilisearch .tmp/",
-    "meilisearch:do-not-use-directly": ".tmp/meilisearch",
-    "develop:withsearch": "concurrently --names \"MEILISEARCH,STRAPI\" -c \"blue.bold,magenta.bold\" \"dotenv-run-script meilisearch:do-not-use-directly\" \"strapi develop\"",
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi"
@@ -32,7 +29,6 @@
     "ajv": "^8.16.0",
     "better-sqlite3": "^11.0.0",
     "concurrently": "^8.0.1",
-    "dotenv-run-script": "^0.4.1",
     "eslint": "^9.4.0"
   },
   "author": {

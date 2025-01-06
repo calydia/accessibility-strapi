@@ -1,0 +1,144 @@
+version = 1
+
+
+[install]
+nodejs_20.pkg-path = "nodejs_20"
+postgresql_16.pkg-path = "postgresql_16"
+meilisearch.pkg-path = "meilisearch"
+gum.pkg-path = "gum"
+curl.pkg-path = "curl"
+
+
+[vars]
+DOTENV_FILE = ".env"
+PGHOSTADDR = "127.0.0.1"
+PGPORT = "15432"
+PGUSER = "strapi"
+PGPASS = "strapi"
+PGDATABASE = "strapi"
+MEILI_ENV = "development"
+MEILI_DB_PATH = ".tmp/data.ms"
+MEILI_DUMP_DIR = ".tmp/dumps"
+MEILI_HTTP_ADDR = "127.0.0.1:7700"
+MEILI_MASTER_KEY = "masterkey"
+
+
+[hook]
+on-activate = '''
+
+# Dotenv
+if [ -f "${FLOX_ENV_PROJECT}/${DOTENV_FILE}" ]; then
+  set -o allexport
+  source "${FLOX_ENV_PROJECT}/${DOTENV_FILE}"
+  set +o allexport
+  echo "✅ Environment variables loaded from '${DOTENV_FILE}' file"
+
+  export PGHOSTADDR="${DATABASE_HOST}"
+  export PGPORT="${DATABASE_PORT}"
+  export PGUSER="${DATABASE_USERNAME}"
+  export PGPASS="${DATABASE_PASSWORD}"
+  export PGDATABASE="${DATABASE_NAME}"
+fi
+
+
+# PostgreSQL
+export PGDIR="${FLOX_ENV_CACHE}/postgres"
+export PGDATA="${PGDIR}/data"
+export PGHOST="${PGDIR}/run"
+export PGCONFIGFILE="${PGDIR}/postgresql.conf"
+export LOG_PATH="${PGHOST}/LOG"
+export SESSION_SECRET="${USER}-session-secret"
+export DATABASE_URL="postgresql:///${PGDATABASE}?host=${PGHOST}&port=${PGPORT}"
+
+if [[ ! -d "${PGHOST}" ]]; then
+  mkdir -p "${PGHOST}"
+fi
+
+if [[ ! -d "${PGDATA}" ]]; then
+  mkdir -p "${PGDATA}"
+  pg_initdb() {
+    initdb "${PGDATA}" \
+      --locale=C \
+      --encoding=UTF8 \
+      -A md5 \
+      --auth=trust \
+      --username "${PGUSER}" \
+      --pwfile=<(echo "${PGPASS}")
+  }
+  export -f pg_initdb  # This is needed for gum to be able to call function
+  if [[ "${FLOX_ENVS_TESTING}" == "1" ]]; then
+    pg_initdb
+  else
+    gum spin --spinner dot --title "Running initdb in ${PGDATA}" -- bash -c pg_initdb
+  fi
+  echo "✅ Initialize PostgreSQL (${PGDATA})"
+
+fi
+
+if [[ ! -f "${PGCONFIGFILE}" ]]; then
+  tee -a "${PGCONFIGFILE}" > /dev/null << EOF
+listen_addresses = '${PGHOSTADDR}';
+port = '${PGPORT}';
+unix_socket_directories = '${PGHOST}';
+unix_socket_permissions = '0700';
+EOF
+  echo "✅ Configure PostgreSQL (${PGCONFIGFILE})"
+fi
+
+pg_ctl -D "${PGDATA}" -w start -o "-c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}" > /dev/null
+if psql -lqt | cut -d \| -f 1 | grep -qw ${PGDATABASE}; then
+  echo "✅ Database '${PGDATABASE}' already exists"
+else
+  createdb
+  echo "✅ Database '${PGDATABASE}' created"
+fi
+pg_ctl -D "${PGDATA}" -m fast -w stop > /dev/null
+
+
+# Meilisearch
+export MEILI_DB_PATH="${FLOX_ENV_CACHE}/meilisearch/data.ms"
+export MEILI_DUMP_DIR="${FLOX_ENV_CACHE}/meilisearch/dumps"
+
+if [[ ! -d "${MEILI_DB_PATH}" ]]; then
+  mkdir -p "${MEILI_DB_PATH}"
+  echo "✅ Meilisearch data directory created"
+fi
+
+if [[ ! -d "${MEILI_DUMP_DIR}" ]]; then
+  mkdir -p "${MEILI_DUMP_DIR}"
+  echo "✅ Meilisearch dumps directory created"
+fi
+'''
+
+[profile]
+common = '''
+cat <<EOM
+     ╔═══════════════════════════════════════════════╗
+     ║                                               ║
+     ║  Start services in the background:            ║
+     ║  👉 flox services start                       ║
+     ║  👉 flox activate --start-services            ║
+     ║                                               ║
+     ║  Try to connect to PostgreSQL:                ║
+     ║  👉 psql                                      ║
+     ║                                               ║
+     ║  Try to connect to Meilisearch:               ║
+     ║  👉 curl ${MEILI_HTTP_ADDR}                      ║
+     ║                                               ║
+     ╚═══════════════════════════════════════════════╝
+EOM
+'''
+
+
+[services]
+postgres.command = "postgres -D ${PGDATA} -c unix_socket_directories=${PGHOST} -c listen_addresses=${PGHOSTADDR} -p ${PGPORT}"
+meilisearch.command = "meilisearch"
+
+
+[options]
+systems = [
+  "aarch64-darwin",
+  "aarch64-linux",
+  "x86_64-darwin",
+  "x86_64-linux",
+]
